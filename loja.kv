@@ -1,0 +1,36 @@
+#:kivy 2.3.0
+
+GerenciadorTelas:
+    TelaLogin:
+
+<TelaLogin>:
+    name:"tela_login"
+
+    GridLayout:
+
+        size_hint: 1,1
+        cols: 1
+        spacing: 2
+        padding: 6
+    
+        Label:
+            text: "Insira suas credenciais abaixo"
+            text_size: self.size
+
+        Label:
+            text: ""
+        
+        TextInput:
+            hint_text: "Digite o usuário"
+            color: 0,0,0,1
+            write_tab: False 
+
+        #texto para a senha
+        TextInput:
+            hint_text: "Digite a senha"
+            password: True
+            color: 0,0,0,1
+            write_tab: False 
+
+        Button:
+            text: 'Entrar'
