@@ -1,11 +1,17 @@
 #:kivy 2.3.0
 
 GerenciadorTelas:
-    TelaPrincipal:
     TelaLogin:
+    TelaPrincipal:
 
 <TelaLogin>:
     name:"tela_login"
+
+    canvas.before:
+        Rectangle:
+            source: 'vecteezy_abstract-blue-neon-color-light-effect-horizontal-on-black_6852869.jpg'
+            size: self.size
+            pos: self.pos
 
     GridLayout:
 
