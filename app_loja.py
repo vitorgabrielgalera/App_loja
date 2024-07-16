@@ -6,6 +6,9 @@ from kivy.lang import Builder
 class TelaLogin(Screen):
     pass
 
+class TelaPrincipal(Screen):
+    pass
+
 class GerenciadorTelas(ScreenManager):
     pass
 

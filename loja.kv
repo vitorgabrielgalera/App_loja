@@ -1,6 +1,7 @@
 #:kivy 2.3.0
 
 GerenciadorTelas:
+    TelaPrincipal:
     TelaLogin:
 
 <TelaLogin>:
@@ -14,23 +15,69 @@ GerenciadorTelas:
         padding: 6
     
         Label:
-            text: "Insira suas credenciais abaixo"
-            text_size: self.size
-
+            text: "Insira suas credenciais abaixo:"
+            font_size: 40
+        
         Label:
             text: ""
-        
+
         TextInput:
             hint_text: "Digite o usuário"
             color: 0,0,0,1
+            #a tecla Tab não faz nada
             write_tab: False 
 
-        #texto para a senha
         TextInput:
             hint_text: "Digite a senha"
+            #mostra os caractéres como bolinhas
             password: True
             color: 0,0,0,1
+            #a tecla Tab não faz nada
             write_tab: False 
 
-        Button:
-            text: 'Entrar'
+        SecondTelaLogin:     
+
+<SecondTelaLogin@GridLayout>:
+
+    cols: 1
+    spacing: 2
+    padding: 6
+    
+    Button:
+        text: 'Entrar'
+
+#############################################################################
+
+<TelaPrincipal>:
+    name: "tela_principal"
+
+    canvas.before:
+        Rectangle:
+            source: 'vecteezy_abstract-blue-neon-color-light-effect-horizontal-on-black_6852869.jpg'
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        size_hint: 1,1
+        cols: 1
+        spacing: 2
+        padding: 6
+
+        #layout inferior
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 10
+            size_hint: 1,0.1
+            pos_hint: {"center_x": 0.5, "y": 0}
+
+            Button:
+                text: "Venda"
+
+            Button:
+                text: "Estoque"
+
+            Button:
+                text: "Pedidos"
+
+        Label:
+            text: ""
