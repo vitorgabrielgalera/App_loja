@@ -9,6 +9,9 @@ class TelaLogin(Screen):
 class TelaPrincipal(Screen):
     pass
 
+class TelaVenda(Screen):
+    pass
+
 class GerenciadorTelas(ScreenManager):
     pass
 

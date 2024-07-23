@@ -1,12 +1,18 @@
 #:kivy 2.3.0
 
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+#gerencia as telas para realizar as transições
 GerenciadorTelas:
+    transition: NoTransition()
     TelaLogin:
     TelaPrincipal:
+    TelaVenda:
 
 <TelaLogin>:
     name:"tela_login"
 
+    #adiciona um fundo
     canvas.before:
         Rectangle:
             source: 'vecteezy_abstract-blue-neon-color-light-effect-horizontal-on-black_6852869.jpg'
@@ -41,43 +47,38 @@ GerenciadorTelas:
             #a tecla Tab não faz nada
             write_tab: False 
 
-        SecondTelaLogin:     
-
-<SecondTelaLogin@GridLayout>:
-
-    cols: 1
-    spacing: 2
-    padding: 6
-    
-    Button:
-        text: 'Entrar'
+        Button:
+            text: 'Entrar'
+            on_release:
+                app.root.current = 'tela_principal'
 
 #############################################################################
 
 <TelaPrincipal>:
     name: "tela_principal"
 
+    #adiciona um fundo
     canvas.before:
         Rectangle:
             source: 'vecteezy_abstract-blue-neon-color-light-effect-horizontal-on-black_6852869.jpg'
             size: self.size
             pos: self.pos
 
-    GridLayout:
+    FloatLayout:
         size_hint: 1,1
-        cols: 1
         spacing: 2
         padding: 6
 
-        #layout inferior
+        #Barra principal
         BoxLayout:
+            pos_hint: {"center_x":0.5,"y":0.9}
             orientation: "horizontal"
-            spacing: 10
             size_hint: 1,0.1
-            pos_hint: {"center_x": 0.5, "y": 0}
 
             Button:
                 text: "Venda"
+                on_release:
+                    app.root.current = 'tela_venda'
 
             Button:
                 text: "Estoque"
@@ -85,5 +86,52 @@ GerenciadorTelas:
             Button:
                 text: "Pedidos"
 
-        Label:
-            text: ""
+#############################################################################
+
+<TelaVenda>:
+    name: "tela_venda"
+
+    canvas.before:
+        Rectangle:
+            source: 'vecteezy_abstract-blue-neon-color-light-effect-horizontal-on-black_6852869.jpg'
+            size: self.size
+            pos: self.pos
+
+    FloatLayout:
+        size_hint: 1,1
+        spacing: 2
+        padding: 6
+
+        #Barra principal
+        BoxLayout:
+            pos_hint: {"center_x":0.5,"y":0.85}
+            orientation: "horizontal"
+            size_hint: 1,0.15
+
+            Button:
+                text: "Venda"
+                on_release:
+                    app.root.current = 'tela_venda'
+
+            Button:
+                text: "Estoque"
+
+            Button:
+                text: "Pedidos"
+
+        #Funcionalidades
+        BoxLayout:
+            pos_hint: {"x":0.85,"y":0}
+            orientation: "vertical"
+            size_hint: 0.15,0.85
+
+            Button:
+                text: "Nova venda"
+
+            Button:
+                text: "Alterar"
+
+            Button:
+                text: "Excluir"
+
+#############################################################################
