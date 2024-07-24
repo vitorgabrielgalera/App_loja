@@ -12,6 +12,12 @@ class TelaPrincipal(Screen):
 class TelaVenda(Screen):
     pass
 
+class TelaEstoque(Screen):
+    pass
+
+class TelaFuncionarios(Screen):
+    pass
+
 class GerenciadorTelas(ScreenManager):
     pass
 
