@@ -12,6 +12,9 @@ class TelaPrincipal(Screen):
 class TelaVenda(Screen):
     pass
 
+class TelaNovaVenda(Screen):
+    pass
+
 class TelaEstoque(Screen):
     pass
 
